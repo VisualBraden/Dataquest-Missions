@@ -1,0 +1,72 @@
+When we work in Jupyter, we usually run code cells in order (from top to bottom), and this helps us keep a clear mental picture of our program's state.
+
+However, sometimes we may want to go back and add some changes to certain code cells, and then run again the code in those specific cells. Jupyter is flexible enough to allow us to do that, but this is a double-edged sword because it can easily make us lose track of our program's state.
+
+In the code example below, we modified a bit the program we wrote in the previous screen, and:
+
+    Edited add_value() to return x + 30 instead of x + 5
+    Changed the value we assign to val from 15 to 20
+    Ran the first code cell
+    Left the other code cells untouched (we didn't even run them again)
+
+img
+
+The code above may be extremely confusing if we see it for the first time or forgot the small changes we did (this is common when writing large programs). By reading the first two cells, you can think about the program's state, and deduce that result should be 50. However, in the third cell, we see that result is actually 20.
+
+This most likely happens because there's something in the program's state we're not aware of — the program has some hidden state. To find out what's really happening, we can start by checking the order of code execution. The numbers in In [number]:, which we can see on left of each code cell, provide us with the order of execution.
+
+img
+
+Above, we see the first cell has In [4]: on its left, which tells us that it was the fourth cell being run. The second cell has In [2]:, so it was the second cell being run, and the third cell has In [3]:, so it was the third cell being run. In [1]: is missing, which tells us that either:
+
+    One of the existing code cells has been run again (and possibly edited); or
+    A code cell was run and then deleted.
+
+To find out exactly what happened, we can run the special command %history -p, which tells what code ran in what order:
+
+img
+
+The >>> symbol we see in the output of %history -p corresponds to an individual code cell, so we can see that:
+
+    In the first code cell that was run, the return statement was return x + 5 (instead of return x + 30) and val was 15 (instead of 20).
+    In the second cell, we assigned the output of add_value(val) to result.
+    In the third cell, we printed result.
+    In the fourth cell, we ran add_value() with a modified return statement (return x + 30 instead of return x + 5), and we also ran val = 20 (as opposed to val = 15).
+    In the fifth cell, we ran %history -p.
+
+The history of code execution we see above tells us a few things:
+
+    The add_value() function and the val variable were modified.
+    result = add_value(val) and print(result) were not run again after add_value() and val were modified.
+
+To fix the issue, we can run the second and the third cell again, and result will become 50, just as expected:
+
+img
+
+In practice, the solution is not always as obvious as above, and the best thing to do is to restart the state and run again all the code cells in order from top to bottom. We can do that very easily by clicking Restart & Run All in the Kernel menu.
+
+img
+
+Let's now get some practice to get a better grasp of hidden states.
+instructions
+
+    Run the %history -p command to get an understanding of the current state of your program.
+        The output of %history -p should be pretty verbose since we ran quite a lot of code so far — you should also see that it's not very easy to understand the state of the program at this point.
+
+    Restart the state of your program and clear the output of every cell by clicking the Restart & Clear Output action from the Kernel menu.
+
+    In a separate cell, run the %history -p command again to confirm that no code has been run (except for %history -p).
+
+    Run the code we wrote in the previous exercise again.
+
+    Modify the first cell (the one where you defined only the function welcome() and the variables dq, jn, and py):
+        The function should not print the string 'Welcome to ' + a_string + '!' anymore. Instead, the string 'Welcome to ' + a_string + '!' is saved to a variable and the variable is returned (using a return statement).
+        Delete the line of code where you assigned the string 'Python' to the py variable.
+
+    Run the modified code, and then try to think about the state of the program just by using the code and the output you see.
+        You should notice that the state you deduced is contradictory to the output printed in the second cell — for instance, welcome(dq) is not supposed to print anything (because we didn't use print() this time), and welcome(py) should raise an error because py is not defined anymore.
+
+    Pretend you don't know what happened exactly and run the %history -p command again to find out.
+
+    Fix the issue either by running the second code cell again or by clicking Restart & Run All in the Kernel menu.
+
