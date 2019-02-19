@@ -70,3 +70,61 @@ instructions
 
     Fix the issue either by running the second code cell again or by clicking Restart & Run All in the Kernel menu.
 
+One of the most useful features of Jupyter is that it allows us to accompany our code with text.
+
+img
+
+Accompanying code with text is useful because it allows us to document or explain our code — similar to how we explained our code in the example above. More relevant to the data analysis workflow, however, text enables us to detail our analysis by providing thorough explanations of the steps we take to analyze data. In the next guided project, for instance, we'll use text extensively to explain the steps of our analysis.
+
+In the example below, we show how to add text to explain our code. To do that, we:
+
+    Create a new code cell above our current code cell.
+    Convert the new code cell to a Markdown cell by clicking Markdown on the dropdown menu found on the toolbar.
+    Add a snippet of text to explain the behavior of our code. We type "In the code below, we will:", and then we paste the rest of the text.
+    Click the run cell, select below button on the toolbar to run the cell (we can also use the shortcuts Shift + Enter, Alt + Enter, or Ctrl + Enter).
+
+img
+
+The kind of cell we use to add text is called "Markdown" because it supports Markdown syntax. Markdown syntax allows us to use keyboard symbols to format our text such that we can:
+
+    Add italics and bolds
+    Add headers (titles) of various sizes
+    Add hyperlinks and images, etc.
+
+For instance, below we double-click the Markdown cell to enter edit mode, and then we edit the text using Markdown syntax:
+
+    We add the title "My Data Science Project" using the syntax # My Data Science Project — we added the # character in front of My Data Science Project.
+    We highlight all the code elements by surrounding them with backticks.
+
+img
+
+You can find a useful cheat sheet on Markdown syntax at this link. It should take you less than two minutes to read it, and you will learn what syntax to use to:
+
+    Add italics and bolds
+    Add headers (titles) of various sizes
+    Add hyperlinks and images
+    Add block quotes
+    Add lists
+    Add horizontal lines (useful to delimit the sections of a big project)
+    Add inline code
+    Add code blocks
+
+Now let's practice adding text and using the Markdown syntax. Note that you'll need to access and read the cheat sheet above to solve the exercise.
+instructions
+
+    In a code cell, open the AppleStore.csv data set, read it in as a list of lists, and display the first few rows.
+
+    Create a Markdown cell above the code cell you used to open the data set and explain the steps you took to open the data set.
+
+    Below the code cell, add another Markdown cell, where you give some information about the data set you just opened. Assume you're writing for someone who doesn't know anything about the data set. Mention:
+        What the data set is about
+        The source of the data set
+        Where the data set be downloaded from and where the documentation can be found — add a hyperlink to the documentation
+
+    Finally, use Markdown syntax to create a table like the one below to explain what each column in the data set is about. Use this resource to quickly learn the syntax for adding a table. You can find what each column describes by reading the documentation of the data set.
+
+Column name 	Description
+"id" 	App ID
+"track_name" 	App Name
+"size_bytes" 	Size (in Bytes)
+..... 	.....
