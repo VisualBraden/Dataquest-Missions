@@ -54,3 +54,55 @@ class NewList(DQ):
         
 my_list = NewList([1,2,3,4,5])
 print(my_list.data)
+
+## 9. Creating an Append Method ##
+
+# The NewList definition from the previous
+# screen is copied here for your convenience
+
+class NewList(DQ):
+    """
+    A Python list with some extras!
+    """
+    def __init__(self, initial_state):
+        self.data = initial_state
+    def append(self, new_item):
+        new_item_list = [new_item]
+        self.data = self.data + new_item_list
+
+my_list = NewList([1,2,3,4,5])
+print(my_list.data)
+my_list.append(6)
+print(my_list.data)
+
+## 10. Creating and Updating an Attribute ##
+
+# The NewList definition from the previous
+# screen is copied here for your convenience
+
+class NewList(DQ):
+    """
+    A Python list with some extras!
+    """
+    def __init__(self, initial_state):
+        self.data = initial_state
+        self.calc_length()
+    
+    def append(self, new_item):
+        """
+        Append `new_item` to the NewList
+        """
+        self.data = self.data + [new_item]
+        self.calc_length()
+        
+    def calc_length(self):
+        length = 0
+        for item in self.data:
+            length += 1
+        self.length = length
+        
+fibonacci = NewList([1,1,2,3,5])
+print(fibonacci.length)
+fibonacci.append(8)
+print(fibonacci.length)
+      
