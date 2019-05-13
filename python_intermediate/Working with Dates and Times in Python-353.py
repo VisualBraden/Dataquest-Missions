@@ -36,3 +36,16 @@ for row in potus:
     appt = row[2]
     appt = dt.datetime.strptime(appt, date_format)
     row[2] = appt 
+
+## 6. Using Strftime to format dates ##
+
+visitors_per_month ={}
+
+for row in potus:
+    start_ = row[2]
+    dt_string = start_.strftime("%B, %Y")
+    print(dt_string)
+    if dt_string not in visitors_per_month:
+        visitors_per_month[dt_string] = 1
+    else:
+        visitors_per_month[dt_string] += 1
