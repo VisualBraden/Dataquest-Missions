@@ -49,3 +49,49 @@ for row in potus:
         visitors_per_month[dt_string] = 1
     else:
         visitors_per_month[dt_string] += 1
+
+## 7. The Time Class ##
+
+appt_times = []
+
+for row in potus:
+    time_dt = row[2]
+    time_t = time_dt.time()
+    appt_times.append(time_t)
+
+## 8. Comparing time objects ##
+
+min_time = min(appt_times)
+max_time = max(appt_times)
+
+## 9. Calculations with Dates and Times ##
+
+dt_1 = dt.datetime(1981, 1, 31)
+dt_2 = dt.datetime(1984, 6, 28)
+dt_3 = dt.datetime(2016, 5, 24)
+dt_4 = dt.datetime(2001, 1, 1, 8, 24, 13)
+
+answer_1 = dt_2 - dt_1
+answer_2 = dt_3 + dt.timedelta(days=56)
+answer_3 = dt_4 - dt.timedelta(seconds=3600)
+
+## 10. Summarizing Appointment Lengths ##
+
+for row in potus:
+    end_date = row[3]
+    end_date = dt.datetime.strptime(end_date, "%m/%d/%y %H:%M")
+    row[3] = end_date
+    
+appt_lengths ={}
+
+for row in potus:
+    start =row[2]
+    end = row[3]
+    length = end - start
+    if length not in appt_lengths:
+        appt_lengths[length] = 1
+    else:
+        appt_lengths[length] += 1
+  
+min_length = min(appt_lengths)
+max_length = max(appt_lengths)
