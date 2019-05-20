@@ -47,3 +47,10 @@ taxi_modified[:,0] = 16
 mean_trip_distance_arr = taxi_modified[:,7]
 mean_trip_dist = np.mean(mean_trip_distance_arr,axis=0)
 taxi_modified[[1800,1801],7] = mean_trip_dist
+
+## 7. Assignment Using Boolean Arrays ##
+
+# this creates a copy of our taxi ndarray
+taxi_copy = taxi.copy()
+total_amount = taxi_copy[:,13]
+total_amount[total_amount<0] = 0
