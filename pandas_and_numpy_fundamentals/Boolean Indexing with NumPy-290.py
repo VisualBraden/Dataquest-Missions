@@ -54,3 +54,14 @@ taxi_modified[[1800,1801],7] = mean_trip_dist
 taxi_copy = taxi.copy()
 total_amount = taxi_copy[:,13]
 total_amount[total_amount<0] = 0
+
+## 8. Assignment Using Boolean Arrays Continued ##
+
+# create a new column filled with `0`.
+zeros = np.zeros([taxi.shape[0], 1])
+taxi_modified = np.concatenate([taxi, zeros], axis=1)
+print(taxi_modified)
+
+taxi_modified[taxi_modified[:,5]==2, 15] = 1
+taxi_modified[taxi_modified[:,5]==3, 15] = 1
+taxi_modified[taxi_modified[:,5]==5, 15] = 1
