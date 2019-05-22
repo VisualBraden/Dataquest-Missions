@@ -65,3 +65,33 @@ print(taxi_modified)
 taxi_modified[taxi_modified[:,5]==2, 15] = 1
 taxi_modified[taxi_modified[:,5]==3, 15] = 1
 taxi_modified[taxi_modified[:,5]==5, 15] = 1
+
+## 9. Challenge: Which is the most popular airport? ##
+
+#Calculate how many trips had JFK as their destination
+jfk = taxi[taxi[:,6]==2]
+jfk_count = jfk.shape[0]
+
+#How many trips had LaGuardia as their destination
+laguardia = taxi[taxi[:,6]==3]
+laguardia_count = laguardia.shape[0]
+
+#How many trips had Newark as their destination
+newark = taxi[taxi[:,6]==5]
+newark_count = newark.shape[0]
+
+#Find the airport with the highest number of dropoffs
+total_dropoffs_dict = {
+    "JFK": jfk_count,
+    "LaGuardia": laguardia_count,
+    "Newark": newark_count
+}
+
+
+for item in total_dropoffs_dict:
+    print("{} airport has {} dropoffs".format(item,total_dropoffs_dict[item]))
+
+max_dropoffs = max(zip(total_dropoffs_dict.values(), total_dropoffs_dict.keys()))
+
+print('\n')
+print("{} airport has the highest number of dropoffs".format(max_dropoffs[1]))
