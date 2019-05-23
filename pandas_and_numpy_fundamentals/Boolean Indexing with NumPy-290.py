@@ -95,3 +95,11 @@ max_dropoffs = max(zip(total_dropoffs_dict.values(), total_dropoffs_dict.keys())
 
 print('\n')
 print("{} airport has the highest number of dropoffs".format(max_dropoffs[1]))
+
+## 10. Challenge: Calculating Statistics for Trips on Clean Data ##
+
+trip_mph = taxi[:,7] / (taxi[:,8] / 3600)
+cleaned_taxi = taxi[trip_mph[:,]<100]
+mean_distance = cleaned_taxi[:,7].mean()
+mean_length = cleaned_taxi[:,8].mean()
+mean_total_amount = cleaned_taxi[:,-2].mean()
