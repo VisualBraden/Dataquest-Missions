@@ -10,3 +10,4 @@ Date:
 10/06/19 - partitioned hard drive and manually installed ubuntu
 22/06
 23/06
+6/07
