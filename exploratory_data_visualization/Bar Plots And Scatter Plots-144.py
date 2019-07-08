@@ -35,3 +35,69 @@ plt.xlabel("Rating Source")
 plt.ylabel("Average Rating")
 plt.title("Average User Rating For Avengers: Age of Ultron (2015)")
 plt.show()
+
+
+## 6. Horizontal Bar Plot ##
+
+import matplotlib.pyplot as plt
+from numpy import arange
+num_cols = ['RT_user_norm', 'Metacritic_user_nom', 'IMDB_norm', 'Fandango_Ratingvalue', 'Fandango_Stars']
+
+bar_widths = norm_reviews[num_cols].iloc[0].values
+bar_positions = arange(5) + 0.75
+tick_positions = range(1,6)
+
+fig, ax = plt.subplots()
+ax.barh(bar_positions, bar_widths, 0.5)
+ax.set_yticks(tick_positions)
+ax.set_yticklabels(num_cols)
+plt.ylabel("Rating Source")
+plt.xlabel("Average Rating")
+plt.title("Average User Rating For Avengers: Age of Ultron (2015)")
+plt.show()
+
+## 7. Scatter plot ##
+
+fig, ax = plt.subplots()
+ax.scatter(norm_reviews.loc[:,"Fandango_Ratingvalue"], norm_reviews.loc[:,'RT_user_norm'])
+plt.xlabel("Fandango")
+plt.ylabel("Rotten Tomatoes")
+plt.show()
+                                                                
+
+## 8. Switching axes ##
+
+fig = plt.figure(figsize=(5,10))
+ax1 = fig.add_subplot(2,1,1)
+ax2 = fig.add_subplot(2,1,2)
+reviews = pd.read_csv('fandango_scores.csv')
+cols = ['FILM', 'RT_user_norm', 'Metacritic_user_nom', 'IMDB_norm', 'Fandango_Ratingvalue', 'Fandango_Stars']
+norm_reviews = reviews[cols]
+
+ax1.scatter(norm_reviews.loc[:, "Fandango_Ratingvalue"], norm_reviews.loc[:, "RT_user_norm"])
+ax1.set(xlabel="Fandango", ylabel="Rotten Tomatoes")
+
+ax2.scatter(norm_reviews.loc[:, "RT_user_norm"], norm_reviews.loc[:, "Fandango_Ratingvalue"])
+ax2.set(xlabel="Rotten Tomatoes", ylabel="Fandango")
+
+plt.show()
+
+## 9. Benchmarking correlation ##
+
+import matplotlib.pyplot as plt
+
+fig = plt.figure(figsize=(5,10))
+ax1 = fig.add_subplot(3,1,1)
+ax2 = fig.add_subplot(3,1,2)
+ax3 = fig.add_subplot(3,1,3)
+
+ax1.scatter(norm_reviews.loc[:, "Fandango_Ratingvalue"], norm_reviews.loc[:, "RT_user_norm"])
+ax1.set(ylabel = "Rotten Tomatoes", xlabel = "Fandango", ylim = [0,5], xlim = [0,5])
+
+ax2.scatter(norm_reviews.loc[:, "Fandango_Ratingvalue"], norm_reviews.loc[:, "Metacritic_user_nom"])
+ax2.set(xlabel = "Fandango", ylabel = "Metacritic", xlim = [0,5], ylim=[0,5])
+
+ax3.scatter(norm_reviews.loc[:, "Fandango_Ratingvalue"], norm_reviews.loc[:, "IMDB_norm"])
+ax3.set(xlabel="Fandango", ylabel = "IMDB", xlim = [0,5], ylim = [0,5])
+
+plt.show()
