@@ -30,3 +30,21 @@ ax3.set(title="Distribution of Metacritic Ratings", ylim=(0,50))
 
 ax4.hist(norm_reviews.loc[:, "IMDB_norm"], 20, range=(0,5))
 ax4.set(title="Distribution of IMDB Ratings", ylim=(0,50))
+
+
+## 7. Box Plot ##
+
+fig, ax = plt.subplots()
+ax.boxplot(norm_reviews['RT_user_norm'])
+ax.set_xticklabels(["Rotten Tomatoes"])
+ax.set(ylim=(0,5))
+plt.show()
+
+## 8. Multiple Box Plots ##
+
+num_cols = ['RT_user_norm', 'Metacritic_user_nom', 'IMDB_norm', 'Fandango_Ratingvalue']
+fig, ax = plt.subplots()
+ax.boxplot(norm_reviews[num_cols].values)
+ax.set_xticklabels(num_cols, rotation=90)
+ax.set(ylim=(0,5))
+plt.show()
