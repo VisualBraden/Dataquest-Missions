@@ -20,3 +20,15 @@ ax.plot(year, men_degrees["Biology"], c='g', label='Men')
 plt.title("Percentage of Biology Degrees Awarded By Gender")
 plt.legend(loc="upper right")
 plt.show()
+
+## 6. Hiding Tick Marks ##
+
+fig, ax = plt.subplots()
+ax.plot(women_degrees['Year'], women_degrees['Biology'], label='Women')
+ax.plot(women_degrees['Year'], 100-women_degrees['Biology'], label='Men')
+
+ax.tick_params(bottom="off", top="off", left="off", right="off")
+ax.set_title('Percentage of Biology Degrees Awarded By Gender')
+ax.legend(loc="upper right")
+
+plt.show()
