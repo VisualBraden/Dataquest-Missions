@@ -32,3 +32,19 @@ ax.set_title('Percentage of Biology Degrees Awarded By Gender')
 ax.legend(loc="upper right")
 
 plt.show()
+
+## 7. Hiding Spines ##
+
+fig, ax = plt.subplots()
+ax.plot(women_degrees['Year'], women_degrees['Biology'], label='Women')
+ax.plot(women_degrees['Year'], 100-women_degrees['Biology'], label='Men')
+ax.tick_params(bottom="off", top="off", left="off", right="off")
+# Add your code here
+ax.spines["right"].set_visible(False)
+ax.spines["left"].set_visible(False)
+ax.spines['top'].set_visible(False)
+ax.spines['bottom'].set_visible(False)
+
+ax.legend(loc='upper right')
+ax.set_title('Percentage of Biology Degrees Awarded By Gender')
+plt.show()
