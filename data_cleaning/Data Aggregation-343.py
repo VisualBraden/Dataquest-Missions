@@ -16,3 +16,8 @@ regions = happiness2015['Region'].unique()
 for x in regions:
     region_group = happiness2015[happiness2015['Region'] == x]
     mean_happiness[x] = region_group['Happiness Score'].mean()
+
+## 5. Creating GroupBy Objects ##
+
+grouped = happiness2015.groupby('Region')
+aus_nz = grouped.get_group('Australia and New Zealand')
