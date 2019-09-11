@@ -77,3 +77,12 @@ merge_index_left = pd.merge(left=four_2015,right=three_2016,left_index=True, rig
 
 rows=4
 columns=6
+
+## 9. Challenge: Combine Data and Create a Visualization ##
+
+happiness2017.rename(columns={'Happiness.Score': 'Happiness Score'}, inplace=True)
+
+combined = pd.concat([happiness2015, happiness2016, happiness2017])
+
+pivot_table_combined = combined.pivot_table('Happiness Score', 'Year')
+pivot_table_combined.plot(kind='barh', title='Mean Happiness Scores by Year', xlim=(0,10))
