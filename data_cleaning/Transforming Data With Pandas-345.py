@@ -44,3 +44,13 @@ def v_counts(col):
     return num/den
 
 v_counts_pct = factors_impact.apply(v_counts)
+
+## 6. Apply Functions along an Axis using the Apply Method Continued ##
+
+factors = ['Economy', 'Family', 'Health', 'Freedom', 'Trust', 'Generosity', 'Dystopia Residual']
+
+def percentages(col):
+    div = col/(happiness2015['Happiness Score'])
+    return div*100
+
+factor_percentages = happiness2015[factors].apply(percentages)
