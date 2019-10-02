@@ -54,3 +54,23 @@ def percentages(col):
     return div*100
 
 factor_percentages = happiness2015[factors].apply(percentages)
+
+## 7. Reshaping Data with the Melt Function ##
+
+main_cols = ['Country', 'Region', 'Happiness Rank', 'Happiness Score']
+factors = ['Economy', 'Family', 'Health', 'Freedom', 'Trust', 'Generosity', 'Dystopia Residual']
+
+melt = pd.melt(happiness2015, id_vars=main_cols, value_vars=factors)
+
+melt['Percentage'] = round(((melt['value']/melt['Happiness Score'])*100),2)
+
+print(melt.head(20))
+
+## 8. Challenge: Aggregate the Data and Create a Visualization ##
+
+melt = pd.melt(happiness2015, id_vars = ['Country', 'Region', 'Happiness Rank', 'Happiness Score'], value_vars= ['Economy', 'Family', 'Health', 'Freedom', 'Trust', 'Generosity', 'Dystopia Residual'])
+melt['Percentage'] = round(melt['value']/melt['Happiness Score'] * 100, 2)
+
+pv_melt = melt.pivot_table(index='variable', values='value')
+
+pv_melt.plot(kind='pie', y='value', legend=False)
