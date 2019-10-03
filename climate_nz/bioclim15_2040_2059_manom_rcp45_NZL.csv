@@ -1,0 +1,30 @@
+Rainfall Seasonality - (Standard Deviation), Year, Model, Statistics, ISO3
+-0.0141, 2040-2059, access1_0, Annual Anomaly, NZL
+0.01576, 2040-2059, access1_3, Annual Anomaly, NZL
+-0.0566, 2040-2059, bcc_csm1_1_m, Annual Anomaly, NZL
+-0.0143, 2040-2059, bcc_csm1_1, Annual Anomaly, NZL
+-0.0123, 2040-2059, bnu_esm, Annual Anomaly, NZL
+0.01275, 2040-2059, canesm2, Annual Anomaly, NZL
+0.0138, 2040-2059, ccsm4, Annual Anomaly, NZL
+0.00238, 2040-2059, cesm1_bgc, Annual Anomaly, NZL
+-0.005, 2040-2059, cesm1_cam5, Annual Anomaly, NZL
+-0.0061, 2040-2059, cnrm_cm5, Annual Anomaly, NZL
+-7.0E-4, 2040-2059, csiro_mk3_6_0, Annual Anomaly, NZL
+-0.0197, 2040-2059, gfdl_cm3, Annual Anomaly, NZL
+0.00569, 2040-2059, gfdl_esm2g, Annual Anomaly, NZL
+-0.0239, 2040-2059, gfdl_esm2m, Annual Anomaly, NZL
+-0.0142, 2040-2059, hadgem2_ao, Annual Anomaly, NZL
+-0.024, 2040-2059, hadgem2_cc, Annual Anomaly, NZL
+-0.0176, 2040-2059, inmcm4, Annual Anomaly, NZL
+0.00314, 2040-2059, ipsl_cm5a_lr, Annual Anomaly, NZL
+0.04985, 2040-2059, ipsl_cm5a_mr, Annual Anomaly, NZL
+-0.0132, 2040-2059, ipsl_cm5b_lr, Annual Anomaly, NZL
+0.01013, 2040-2059, miroc5, Annual Anomaly, NZL
+0.01629, 2040-2059, miroc_esm_chem, Annual Anomaly, NZL
+-0.0181, 2040-2059, miroc_esm, Annual Anomaly, NZL
+0.05036, 2040-2059, mpi_esm_lr, Annual Anomaly, NZL
+-0.0255, 2040-2059, mpi_esm_mr, Annual Anomaly, NZL
+-0.0185, 2040-2059, noresm1_m, Annual Anomaly, NZL
+-0.0606, 2040-2059, Ensemble (10th Percentile), Annual Anomaly, NZL
+-0.0101, 2040-2059, Ensemble (50th Percentile), Annual Anomaly, NZL
+0.0801, 2040-2059, Ensemble (90th Percentile), Annual Anomaly, NZL
